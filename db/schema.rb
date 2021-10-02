@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_013326) do
+ActiveRecord::Schema.define(version: 2021_10_02_013938) do
+
+  create_table "facebook_authorisations", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "uid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "password_authorisations", force: :cascade do |t|
     t.integer "user_id"
