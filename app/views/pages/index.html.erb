@@ -1,1 +1,5 @@
-<%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %>
+<% if @user %>
+    <h1><%= @user.username %></h1>
+<% else %>
+    <%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %>
+<% end %>
