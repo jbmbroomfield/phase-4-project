@@ -1,7 +1,9 @@
+<br><br>
 <% if @user %>
     <h1><%= @user.username %></h1>
     <%= link_to('Log out', logout_path, method: :post) %>
 <% else %>
+    <%= link_to('Sign up', new_user_path) %><br>
     <%= link_to('Log in', login_path) %><br>
     <%= link_to('Log in with Facebook', '/auth/facebook', method: :post) %>
 <% end %>
