@@ -1,0 +1,2 @@
+class FacebookAuthentication < ApplicationRecord
+end

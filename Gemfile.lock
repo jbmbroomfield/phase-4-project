@@ -136,6 +136,9 @@ GEM
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     puma (5.5.0)
       nio4r (~> 2.0)
     racc (1.5.2)
@@ -250,6 +253,7 @@ DEPENDENCIES
   listen (~> 3.3)
   omniauth
   omniauth-facebook
+  omniauth-rails_csrf_protection
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)

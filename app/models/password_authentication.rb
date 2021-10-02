@@ -1,4 +1,4 @@
-class PasswordAuthorisation < ApplicationRecord
+class PasswordAuthentication < ApplicationRecord
 
     belongs_to :user
 
