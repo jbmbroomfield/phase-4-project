@@ -1,9 +1,10 @@
 class User < ApplicationRecord
 
     has_one :password_authentication
-    # has_one :password, through: :password_authentication
-    # has_one :password_confirmation, through: :password_authentication
     has_one :facebook_authentication
+    has_many :posts
+    has_many :threads, through: :posts
+    has_many :sections, through: :threads
 
     validates :username, presence: true
     validates :email, presence: true

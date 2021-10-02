@@ -3,6 +3,7 @@ require 'rails_helper'
 user = User.create(username: 'Alice', email: 'alice@mail.com')
 section = Section.create(title: 'Section')
 thread = ForumThread.create(section: section, title: 'Thread')
+text = 'This is a new post.'
 
 RSpec.describe Post, type: :model do
   
