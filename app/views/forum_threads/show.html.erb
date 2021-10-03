@@ -1,0 +1,5 @@
+<h1><%= @thread %></h1>
+<% @posts.each do |post| %>
+    <p><%= post.user %></p>
+    <p><u><%= post.text %></u></p>
+<% end %>

@@ -7,28 +7,27 @@ class ForumThreadsController < ApplicationController
 
     def create
         @thread = ForumThread.new(thread_params)
-        p "1111111111111111111"
-        p thread_params
-        p @thread.title
         @section = @thread.section
         if @thread.save
-            redirect_to @thread.section
+            redirect_to section_thread_path(section_id: @section.id, id: @thread.id)
         else
-            p "NOT SAVEDD"
-            @thread.errors.full_messages.each do |m|
-                p m
-            end
             render :new
         end
     end
 
     def show
+        @thread = ForumThread.find(params[:id])
+        @posts = @thread.posts
     end
 
     private
 
     def thread_params
-        params.require(:forum_thread).permit(:user_id, :section_id, :title, :text)
+        params.require(:forum_thread).permit(
+            :section_id,
+            :title,
+            post: [:user_id, :text,],
+        )
     end
 
 end

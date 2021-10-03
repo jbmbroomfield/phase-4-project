@@ -3,9 +3,11 @@
 <p>Section: <%= @section %></p>
 
 <%= form_for :forum_thread, url: section_threads_path(section_id: @section.id) do |f| %>
-    <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.hidden_field :section_id, value: @section.id %>
     Title: <%= f.text_field :title %><br>
-    Text: <%= f.text_area :text %><br>
+    <%= f.fields_for :post, Post.new do |post_fields| %>
+        <%= post_fields.hidden_field :user_id, value: @user.id %>
+        Text: <%= post_fields.text_area :text %><br>
+    <% end %>
     <%= f.submit "Submit" %>
 <% end %>

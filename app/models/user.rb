@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
     validates :username, presence: true
     validates :email, presence: true
+
+    def to_s
+        self.username
+    end
     
     def authenticate(password)
         return password_authentication && password_authentication.authenticate(password_authentication)

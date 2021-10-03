@@ -1,7 +1,7 @@
 class ForumThread < ApplicationRecord
 
     belongs_to :section
-    has_many :posts
+    has_many :posts, inverse_of: :thread, foreign_key: 'thread_id'
     has_many :users, through: :posts
 
     validates :section, presence: true
@@ -12,26 +12,10 @@ class ForumThread < ApplicationRecord
         self.title
     end
 
-    def user=(user)
-        post = first_post
-        post.user = user
-        post.save
-    end
-
-    def user_id=(user_id)
-        self.user = User.find(user_id)
-    end
-
-    def text=(text)
-        post = first_post
-        post.text = text
-        post.save
-    end
-
-    private
-
-    def first_post
-        self.posts.first || Post.new(thread: self, user_id: 1, text: 'placeholder')
+    def post=(params)
+        first_post = Post.new(params)
+        first_post.thread = self
+        first_post.save
     end
 
 end
