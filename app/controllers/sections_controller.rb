@@ -1,6 +1,10 @@
 class SectionsController < ApplicationController
 
-    before_action :require_admin
+    before_action :require_admin, only: [:new, :create]
+
+    def show
+        @section = Section.find(params[:id])
+    end
 
     def new
         @section = Section.new
@@ -19,12 +23,6 @@ class SectionsController < ApplicationController
 
     def section_params
         params.require(:section).permit(:title)
-    end
-
-    def require_admin
-        if !@user.admin
-            redirect_to root_path
-        end
     end
 
 end

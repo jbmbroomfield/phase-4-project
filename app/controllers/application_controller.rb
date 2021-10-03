@@ -8,4 +8,16 @@ class ApplicationController < ActionController::Base
         @user = User.find_by(id: session[:user_id])
     end
 
+    def require_login
+        if !@user
+            redirect_to root_path
+        end
+    end
+
+    def require_admin
+        if !@user || !@user.admin
+            redirect_to root_path
+        end
+    end
+
 end

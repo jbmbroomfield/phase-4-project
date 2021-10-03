@@ -8,4 +8,22 @@ class ForumThread < ApplicationRecord
     validates :title, presence: true
     validates :title, length: { maximum: 32 }
 
+    def user=(user)
+        post = first_post
+        post.user = user
+        post.save
+    end
+
+    def text=(text)
+        post = first_post
+        post.text = text
+        post.save
+    end
+
+    private
+
+    def first_post
+        self.posts.first || self.posts.new
+    end
+
 end

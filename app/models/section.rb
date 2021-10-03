@@ -6,4 +6,8 @@ class Section < ApplicationRecord
 
     validates :title, presence: true
 
+    def to_s
+        self.title
+    end
+
 end
