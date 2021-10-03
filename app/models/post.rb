@@ -5,4 +5,8 @@ class Post < ApplicationRecord
 
     validates :text, presence: true
 
+    def forum_thread_id=(thread_id)
+        self.thread_id = thread_id
+    end
+
 end

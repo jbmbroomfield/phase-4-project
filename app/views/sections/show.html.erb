@@ -1,5 +1,9 @@
 <h1><%= @section.title %></h1>
 
+<% @section.threads.each do |thread| %>
+    <p><%= link_to thread, section_thread_path(section_id: @section.id, id: thread.id) %></p>
+<% end %>
+
 <% if @user %>
     <p><%= link_to 'New Thread', new_section_thread_path(@section) %></p>
 <% end %>

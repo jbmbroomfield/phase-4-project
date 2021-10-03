@@ -8,10 +8,18 @@ class ForumThread < ApplicationRecord
     validates :title, presence: true
     validates :title, length: { maximum: 32 }
 
+    def to_s
+        self.title
+    end
+
     def user=(user)
         post = first_post
         post.user = user
         post.save
+    end
+
+    def user_id=(user_id)
+        self.user = User.find(user_id)
     end
 
     def text=(text)
@@ -23,7 +31,7 @@ class ForumThread < ApplicationRecord
     private
 
     def first_post
-        self.posts.first || self.posts.new
+        self.posts.first || Post.new(thread: self, user_id: 1, text: 'placeholder')
     end
 
 end

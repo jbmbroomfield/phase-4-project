@@ -15,7 +15,7 @@ class SectionsController < ApplicationController
         if @section.save
             redirect_to root_path
         else
-            render new
+            render :new
         end
     end
 
