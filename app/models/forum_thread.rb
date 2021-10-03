@@ -18,4 +18,8 @@ class ForumThread < ApplicationRecord
         new_post.save
     end
 
+    def started_by
+        self.posts.first.user
+    end
+
 end
