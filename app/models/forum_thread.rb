@@ -13,9 +13,9 @@ class ForumThread < ApplicationRecord
     end
 
     def post=(params)
-        first_post = Post.new(params)
-        first_post.thread = self
-        first_post.save
+        new_post = Post.new(params)
+        new_post.thread = self
+        new_post.save
     end
 
 end
