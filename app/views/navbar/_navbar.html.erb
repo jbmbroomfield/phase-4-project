@@ -1,5 +1,6 @@
 <ul class="navbar">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'Users', users_path %></li>
+    <li><%= link_to 'Admins', admins_path %></li>
     <%= render @user ? 'navbar/navbar_logged_in' : 'navbar/navbar_logged_out' %>
 </ul>
