@@ -1,7 +1,10 @@
 <h1><%= @thread %></h1>
-<% @posts.each do |post| %>
-    <%= render 'posts/post', post: post %>
-<% end %>
+
+<div class="thread">
+    <% @posts.each do |post| %>
+        <%= render 'posts/post', post: post %>
+    <% end %>
+</div>
 
 <% if @user %>
     <%= link_to 'Reply', new_section_thread_post_path(section_id: @thread.section.id, thread_id: @thread.id) %>

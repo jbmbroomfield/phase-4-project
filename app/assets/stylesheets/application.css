@@ -14,6 +14,10 @@
  *= require_self
  */
 
+.thread {
+  margin: 20px;
+}
+
 .navbar {
   list-style-type: none;
   margin: 0;
