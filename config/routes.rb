@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/admins' => 'pages#admins'
+
 end

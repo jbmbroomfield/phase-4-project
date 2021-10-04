@@ -9,6 +9,8 @@ class User < ApplicationRecord
     validates :username, presence: true
     validates :email, presence: true
 
+    scope :admins, -> { where(admin: true) }
+
     def to_s
         self.username
     end

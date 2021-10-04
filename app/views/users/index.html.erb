@@ -1,4 +1,2 @@
 <h1>Users</h1>
-<% @users.each do |user| %>
-    <p><%= link_to user, user %></p>
-<% end %>
+<%= render 'users', users: @users %>
