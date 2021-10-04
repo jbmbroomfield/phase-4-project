@@ -2,6 +2,10 @@ class SectionsController < ApplicationController
 
     before_action :require_admin, only: [:new, :create]
 
+    def index
+        @sections = Section.all
+    end
+
     def show
         @section = Section.find(params[:id])
     end
