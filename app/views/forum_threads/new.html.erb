@@ -6,7 +6,7 @@
     <%= f.hidden_field :section_id, value: @section.id %>
     Title: <%= f.text_field :title %><br>
     <%= f.fields_for :post, Post.new do |post_fields| %>
-        <%= post_fields.hidden_field :user_id, value: @user.id %>
+        <%= post_fields.hidden_field :user_id, value: @current_user.id %>
         Text: <%= post_fields.text_area :text %><br>
     <% end %>
     <%= f.submit "Submit" %>
