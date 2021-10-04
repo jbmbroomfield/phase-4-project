@@ -6,6 +6,6 @@
     <% end %>
 </div>
 
-<% if @user %>
+<% if @current_user %>
     <%= link_to 'Reply', new_section_thread_post_path(section_id: @thread.section.id, thread_id: @thread.id) %>
 <% end %>

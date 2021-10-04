@@ -5,17 +5,17 @@ class ApplicationController < ActionController::Base
     private
 
     def get_current_user
-        @user = User.find_by(id: session[:user_id])
+        @current_user = User.find_by(id: session[:user_id])
     end
 
     def require_login
-        if !@user
+        if !@current_user
             redirect_to root_path
         end
     end
 
     def require_admin
-        if !@user || !@user.admin
+        if !@current_user || !@current_user.admin
             redirect_to root_path
         end
     end
