@@ -14,8 +14,34 @@
  *= require_self
  */
 
-.thread {
-  margin: 20px;
+section {
+  margin: 50px 150px 0;
+}
+
+.post {
+  padding: 10px;
+}
+
+.post-even {
+  background-color: #eee;
+}
+
+.post-odd {
+  background-color: #ccc;
+}
+
+.post-first {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.post-last {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+textarea {
+  width: 100%;
 }
 
 .navbar {

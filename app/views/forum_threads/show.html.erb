@@ -1,8 +1,8 @@
 <h1><%= @thread %></h1>
 
 <div class="thread">
-    <% @posts.each do |post| %>
-        <%= render 'posts/post', post: post %>
+    <% @posts.each_with_index do |post, index| %>
+        <%= render 'posts/post', post: post, index: index, post_count: @post_count %>
     <% end %>
 </div>
 
