@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
+        @thread = @post.thread
         if @post.save
             redirect_to section_thread_path(section_id: @post.thread.section.id, id: @post.thread.id)
         else

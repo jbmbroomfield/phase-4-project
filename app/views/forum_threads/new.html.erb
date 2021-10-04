@@ -2,6 +2,8 @@
 
 <p>Section: <%= @section %></p>
 
+<%= render 'forms/error_explanation', object: @thread %>
+
 <%= form_for :forum_thread, url: section_threads_path(section_id: @section.id) do |f| %>
     <%= f.hidden_field :section_id, value: @section.id %>
     Title: <%= f.text_field :title %><br>

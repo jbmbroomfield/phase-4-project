@@ -8,6 +8,9 @@ class ForumThread < ApplicationRecord
     validates :title, presence: true
     validates :title, length: { maximum: 32 }
 
+    accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['text'].blank? }
+    validates_associated :posts
+
     def to_s
         self.title
     end
