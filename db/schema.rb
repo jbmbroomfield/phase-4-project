@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_101153) do
+ActiveRecord::Schema.define(version: 2021_10_04_111122) do
 
   create_table "facebook_authentications", force: :cascade do |t|
     t.integer "user_id"
@@ -22,13 +22,6 @@ ActiveRecord::Schema.define(version: 2021_10_02_101153) do
   create_table "forum_threads", force: :cascade do |t|
     t.integer "section_id"
     t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "password_authentications", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_10_02_101153) do
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end

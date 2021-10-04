@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+    has_secure_password
+
     has_one :password_authentication
     has_one :facebook_authentication
     has_many :posts
@@ -15,21 +17,25 @@ class User < ApplicationRecord
         self.username
     end
     
-    def authenticate(password)
-        return password_authentication && password_authentication.authenticate(password_authentication)
-    end
+    # def authenticate(password)
+    #     return password_authentication && password_authentication.authenticate(password_authentication)
+    # end
 
-    def password=(password)
-        get_password_authentication.password = password
-    end
+    # def password=(password)
+    #     password_authentication = get_password_authentication
+    #     password_authentication.password = password
+    #     password_authentication.save
+    # end
 
-    def password_confirmation=(password_confirmation)
-        get_password_authentication.password_confirmation = password_confirmation
-    end
+    # def password_confirmation=(password_confirmation)
+    #     password_authentication = get_password_authentication
+    #     password_authentication.password_confirmation = password_confirmation
+    #     password_authentication.save
+    # end
 
-    def get_password_authentication
-        PasswordAuthentication.find_or_create_by(user: self)
-    end
+    # def get_password_authentication
+    #     PasswordAuthentication.find_or_create_by(user: self)
+    # end
         
 
 end
