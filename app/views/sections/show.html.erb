@@ -1,7 +1,9 @@
 <h1><%= @section.title %></h1>
 
-<% @section.threads.each do |thread| %>
-    <p><%= link_to thread, section_thread_path(section_id: @section.id, id: thread.id) %></p>
+<% @section.threads.each_with_index do |thread, index| %>
+    <div class="<%= row_class(index, @section.threads_count) %>">
+        <%= render 'thread', thread: thread %>
+    </div>
 <% end %>
 
 <% if @current_user %>

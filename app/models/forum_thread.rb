@@ -2,7 +2,7 @@ class ForumThread < ApplicationRecord
 
     belongs_to :section
     has_many :posts, inverse_of: :thread, foreign_key: 'thread_id'
-    has_many :users, through: :posts
+    has_many :users, -> { distinct }, through: :posts
 
     validates :section, presence: true
     validates :title, presence: true
@@ -22,7 +22,15 @@ class ForumThread < ApplicationRecord
     end
 
     def started_by
-        self.posts.first.user
+        posts.first.user
+    end
+
+    def posts_count
+        posts.count
+    end
+
+    def users_count
+        users.count
     end
 
 end
