@@ -15,6 +15,13 @@ class User < ApplicationRecord
 
     def to_s
         self.username
-    end        
+    end
+    
+    def self.create(params)
+        if User.count == 0
+            params[:admin] = true
+        end
+        super(params)
+    end
 
 end
