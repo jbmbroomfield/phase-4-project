@@ -4,6 +4,6 @@
     <p><%= link_to thread, section_thread_path(section_id: @section.id, id: thread.id) %></p>
 <% end %>
 
-<% if @user %>
+<% if @current_user %>
     <p><%= link_to 'New Thread', new_section_thread_path(@section) %></p>
 <% end %>
