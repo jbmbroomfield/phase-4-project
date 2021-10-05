@@ -22,24 +22,24 @@ section {
   margin: 50px 150px 0;
 }
 
-.post {
+.row {
   padding: 10px;
 }
 
-.post-even {
+.row-even {
   background-color: #eee;
 }
 
-.post-odd {
+.row-odd {
   background-color: #ccc;
 }
 
-.post-first {
+.row-first {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.post-last {
+.row-last {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }

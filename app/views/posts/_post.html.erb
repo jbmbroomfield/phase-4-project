@@ -1,9 +1,4 @@
-<% post_parity = index % 2 == 0 ? ' post-even' : ' post-odd' %>
-<% post_first = index == 0 ? ' post-first' : '' %>
-<% post_last = index == post_count - 1 ? ' post-last' : '' %>
-<% class_name = "post#{post_parity}#{post_first}#{post_last}" %>
-
-<div class="<%= class_name %>">
+<div class="<%= row_class(index, post_count) %>">
     <p>Reply #<%= index %> by <%= link_to post.user, post.user %></p>
     <p><%= post.text %></p>
 </div>
