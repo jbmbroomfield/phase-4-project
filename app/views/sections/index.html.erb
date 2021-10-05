@@ -1,5 +1,7 @@
-<% @sections.each do |section| %>
-    <h2><%= link_to section, section %></h2>
+<% @sections.each_with_index do |section, index| %>
+    <div class="<%= row_class(index, @sections.count) %>">
+        <%= render 'section', section: section %>
+    </div>
 <% end %>
 
 <% if @current_admin %>
