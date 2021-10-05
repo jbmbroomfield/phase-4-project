@@ -27,11 +27,11 @@ section {
 }
 
 .row-even {
-  background-color: #eee;
+  background-color: #ccc;
 }
 
 .row-odd {
-  background-color: #ccc;
+  background-color: #eee;
 }
 
 .row-first {
