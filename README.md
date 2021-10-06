@@ -1,24 +1,6 @@
-# README
+Phase 4 Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Forum Site.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Create an account using a password or a Facebook account.
+Navigate between the different sections, creating new threads and replying to existing threads.
