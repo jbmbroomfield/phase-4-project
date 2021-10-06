@@ -10,4 +10,4 @@
     <%= link_to 'Reply', new_section_thread_post_path(section_id: @thread.section.id, thread_id: @thread.id) %>
 <% end %>
 
-<p><%= link_to @thread.section, section_path(section_id: @thread.section_id) %></p>
+<p><%= link_to @thread.section, @thread.section %></p>
