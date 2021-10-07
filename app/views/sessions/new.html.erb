@@ -1,6 +1,16 @@
 <h1>Login</h1>
-<%= form_for :user, url: '/login' do |f| %>
-  Username: <%= f.text_field :username %><br>
-  Password: <%= f.password_field :password %><br>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="row row-first row-even row-last">
+  <%= form_for :user, url: '/login' do |f| %>
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td><%= f.text_field :username %></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><%= f.password_field :password %></td>
+      </tr>
+    </table>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
