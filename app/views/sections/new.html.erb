@@ -1,5 +1,13 @@
 <h1>New Section</h1>
-<%= form_for :section, url: '/sections' do |f| %>
-  Title: <%= f.text_field :title %><br>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="row row-first row-even row-last">
+  <%= form_for :section, url: '/sections' do |f| %>
+      <table>
+        <tr>
+          <td>Title:</td>
+          <td><%= f.text_field :title %></td>
+        </tr>
+        <tr>
+      </table>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
