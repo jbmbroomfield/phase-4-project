@@ -4,12 +4,22 @@
 
 <%= render 'forms/error_explanation', object: @thread %>
 
-<%= form_for :forum_thread, url: section_threads_path(section_id: @section.id) do |f| %>
-    <%= f.hidden_field :section_id, value: @section.id %>
-    Title: <%= f.text_field :title %><br>
-    <%= f.fields_for :post, Post.new do |post_fields| %>
-        <%= post_fields.hidden_field :user_id, value: @current_user.id %>
-        Text: <%= post_fields.text_area :text %><br>
+<div class="row row-first row-even row-last">
+    <%= form_for :forum_thread, url: section_threads_path(section_id: @section.id) do |f| %>
+        <%= f.hidden_field :section_id, value: @section.id %>
+        <table>
+            <tr>
+                <td>Title:</td>
+                <td><%= f.text_field :title %></td>
+            </tr>
+            <%= f.fields_for :post, Post.new do |post_fields| %>
+                <%= post_fields.hidden_field :user_id, value: @current_user.id %>
+                <tr>
+                    <td>Text:</td>
+                    <td><%= post_fields.text_area :text %></td>
+                </tr>
+            <% end %>
+        </table>
+        <%= f.submit "Submit" %>
     <% end %>
-    <%= f.submit "Submit" %>
-<% end %>
+</div>
