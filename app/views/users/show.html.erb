@@ -1,4 +1,10 @@
 <h1><%= @user %></h1>
-<p>Posts: <%= @user.posts.count %></p>
-<p>Threads: <%= @user.threads.count %></p>
-<p>Admin: <%= @user.admin ? 'Yes' : 'No' %></p>
+<div class="row row-first row-even">
+    Posts: <%= @user.posts.count %>
+</div>
+<div class="row row-odd">
+    Threads: <%= @user.threads.count %>
+</div>
+<div class="row row-last row-even">
+    Admin: <%= @user.admin ? 'Yes' : 'No' %>
+</div>
