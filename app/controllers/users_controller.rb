@@ -7,8 +7,6 @@ class UsersController < ApplicationController
     def create
         if user_params[:password] == params[:user][:password_confirmation]
             @user = User.create(user_params)
-            p User.count
-            p User.all.length
             if User.all.count <= 1
                 @user.admin = true
                 @user.save
