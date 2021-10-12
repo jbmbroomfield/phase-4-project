@@ -4,7 +4,7 @@
 
 <%= render 'forms/error_explanation', object: @post %>
 
-<div class="<%= row_class(0, 0) %>">
+<div class="<%= row_class(0, 1) %>">
     <%= form_for :post, url: section_thread_posts_path(section_id: @thread.section.id, id: @thread.id) do |f| %>
         <%= f.hidden_field :thread_id, value: @thread.id %>
         <%= f.hidden_field :user_id, value: @current_user.id %>
