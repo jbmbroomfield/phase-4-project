@@ -1,12 +1,19 @@
 class SessionsController < ApplicationController
 
     def new
+        @user = User.new
     end
 
     def create
-        @user = User.find_by(username: session_params[:username])
-        return head(:forbidden) unless @user && @user.authenticate(session_params[:password])
-        session[:user_id] = @user.id
+        username = session_params[:username]
+        password = session_params[:password]
+        @user = User.find_by(username: username) || User.new
+        if @user && password && password.length > 0 && @user.authenticate(password)
+            session[:user_id] = @user.id
+            redirect_to root_path
+        else
+            render :new
+        end
     end
 
     def destroy

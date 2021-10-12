@@ -1,8 +1,8 @@
-<% if object.errors.any? %>
+<% if object && object.errors.any? %>
     <div id="error_explanation">
         <h2>
             <%= pluralize(object.errors.count, "error") %>
-            prohibited this post from being saved:
+            prohibited this <%= description %>:
         </h2>
 
         <ul>
