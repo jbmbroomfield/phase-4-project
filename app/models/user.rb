@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-    has_secure_password
+    has_secure_password validations: false
 
     has_one :password_authentication
     has_one :facebook_authentication
