@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.valid?
-            @user.admin = true if User.all.count == 0
+            @user.admin = User.all.count == 0
             @user.save
             redirect_to root_path
         else
