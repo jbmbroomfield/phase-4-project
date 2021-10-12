@@ -5,17 +5,27 @@ class UsersController < ApplicationController
     end
 
     def create
-        if user_params[:password] == params[:user][:password_confirmation]
-            @user = User.create(user_params)
-            if User.all.count <= 1
+        @user = User.new(user_params)
+        if @user.valid?
+            if User.all.count == 0
                 @user.admin = true
-                @user.save
             end
-            session[:user_id] = @user.id
+            @user.save
             redirect_to root_path
         else
-            redirect_to new_user_path
+            render :new
         end
+        # if user_params[:password] == params[:user][:password_confirmation]
+        #     @user = User.create(user_params)
+        #     if User.all.count <= 1
+        #         @user.admin = true
+        #         @user.save
+        #     end
+        #     session[:user_id] = @user.id
+        #     redirect_to root_path
+        # else
+        #     redirect_to new_user_path
+        # end
     end
 
     def index
